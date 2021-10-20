@@ -3,3 +3,4 @@ tests/
 yarn.lock
 .vscode/
 .parcel-cache/
+dist/
