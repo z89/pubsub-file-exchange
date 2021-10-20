@@ -57,26 +57,31 @@ async function start () {
         Addresses: {
           Swarm: [
             // This is a public webrtc-star server
-            '/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
-            '/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
-            '/ip4/127.0.0.1/tcp/13579/wss/p2p-webrtc-star'
+            // '/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
+            // '/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
+            '/ip4/0.0.0.0/tcp/9090/ws/p2p-webrtc-star/',
+            '/dns4/localhost/tcp/9090/ws/p2p-webrtc-star/'
           ]
         },
+        // preload: {
+        //   enabled: true,
+        //   addresses: [ '/dnsaddr/ipfs.domain.com/https' ],
+        // },
         // If you want to connect to the public bootstrap nodes, remove the next line
         Bootstrap: []
       },
-      libp2p: {
-        config: {
-          transport: {
-            // This is added for local demo!
-            // In a production environment the default filter should be used
-            // where only DNS + WSS addresses will be dialed by websockets in the browser.
-            [transportKey]: {
-              filter: filters.all
-            }
-          }
-        }
-      }
+      // libp2p: {
+      //   config: {
+      //     transport: {
+      //       // This is added for local demo!
+      //       // In a production environment the default filter should be used
+      //       // where only DNS + WSS addresses will be dialed by websockets in the browser.
+      //       [transportKey]: {
+      //         filter: filters.d
+      //       }
+      //     }
+      //   }
+      // }
     })
 
     try {
