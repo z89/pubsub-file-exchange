@@ -53,22 +53,27 @@ async function start () {
   if (!node) {
     node = await IPFS.create({
       repo: 'ipfs-' + Math.random(),
+      preload: {
+        enable: true, // preload by default, unless in test env
+        addresses: [
+          '/dns4/node0.preload.ipfs.io/https',
+          '/dns4/node1.preload.ipfs.io/https',
+          '/dns4/node2.preload.ipfs.io/https',
+          '/dns4/node3.preload.ipfs.io/https'
+        ]
+      },
       config: {
         Addresses: {
           Swarm: [
             // This is a public webrtc-star server
             // '/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
             // '/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
-            '/ip4/0.0.0.0/tcp/9090/ws/p2p-webrtc-star/',
+            // '/ip4/0.0.0.0/tcp/9090/ws/p2p-webrtc-star/',
             '/dns4/localhost/tcp/9090/ws/p2p-webrtc-star/'
           ]
         },
-        // preload: {
-        //   enabled: true,
-        //   addresses: [ '/dnsaddr/ipfs.domain.com/https' ],
-        // },
         // If you want to connect to the public bootstrap nodes, remove the next line
-        Bootstrap: []
+        // Bootstrap: []
       },
       // libp2p: {
       //   config: {
