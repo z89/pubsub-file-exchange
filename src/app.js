@@ -54,12 +54,13 @@ async function start () {
     node = await IPFS.create({
       repo: 'ipfs-' + Math.random(),
       preload: {
-        enable: true, // preload by default, unless in test env
+        enable: false, // preload by default, unless in test env
         addresses: [
-          '/dns4/node0.preload.ipfs.io/https',
-          '/dns4/node1.preload.ipfs.io/https',
-          '/dns4/node2.preload.ipfs.io/https',
-          '/dns4/node3.preload.ipfs.io/https'
+          // '/dns4/node0.preload.ipfs.io/https',
+          // '/dns4/node1.preload.ipfs.io/https',
+          // '/dns4/node2.preload.ipfs.io/https',
+          // '/dns4/node3.preload.ipfs.io/https'
+          // '/ip4/127.0.0.1/tcp/5001'
         ]
       },
       config: {
